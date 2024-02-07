@@ -9,4 +9,9 @@ export default defineNuxtConfig({
       apiBase: "https://tyradex.vercel.app/api/v1"
     }
   },
+  nitro: {
+    prerender: {
+      failOnError: false
+    }
+  }
 })
