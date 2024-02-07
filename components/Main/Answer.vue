@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>score : {{ score }}</p>
     <FormInput
       label="Nom du pokemon:"
       :inputId="1"
@@ -8,7 +7,6 @@
       type="text"
     />
 
-    <button @click="increment">Score : {{ score }}</button>
   </div>
 </template>
 
