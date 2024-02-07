@@ -7,9 +7,7 @@ export const useScoreStore = defineStore({
   }),
   actions: {
     increment () {
-      console.log(this.score)
       this.score++
-      console.warn(this.score)
     },
     decrement () {
       this.score--
