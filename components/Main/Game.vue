@@ -1,9 +1,14 @@
 <template>
   <div>
-    {{ poke }}
-
-    <MainDisplayPokemon v-if="poke !== null" :poke='poke' />
-    <MainAnswer :answer="poke && poke.name ? poke.name.fr : 'wait'"/>
+    <div class="w-full font-mono text-slate-300 bg-slate-900 flex flex-col">
+      <span class="flex w-full justify-center">DEBUG</span>
+      <span>Name : {{ poke.name.fr }}</span>
+      <span>PokeId : {{ poke.pokedexId }}</span>
+      <span>Generation : {{ poke.generation }}</span>
+    </div>
+    <MainDisplayScore />
+    <MainDisplayPokemon v-if="poke !== null" :poke="poke" />
+    <MainAnswer :answer="poke && poke.name ? poke.name.fr : 'wait'" />
   </div>
 </template>
 
@@ -24,7 +29,6 @@ export default {
         const response = await fetch(`${this.apiBase}/pokemon/${pokeId}`);
         if (response.ok) {
           this.poke = await response.json();
-          // console.log(this.poke);
         } else {
           throw new Error("Erreur fetch API");
         }
