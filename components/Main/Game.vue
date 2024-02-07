@@ -1,14 +1,23 @@
 <template>
   <div>
-    <div class="w-full font-mono text-slate-300 bg-slate-900 flex flex-col">
+    <div
+      v-if="poke !== null"
+      class="w-full font-mono text-slate-300 bg-slate-900 flex flex-col"
+    >
       <span class="flex w-full justify-center">DEBUG</span>
       <span>Name : {{ poke.name.fr }}</span>
       <span>PokeId : {{ poke.pokedexId }}</span>
       <span>Generation : {{ poke.generation }}</span>
     </div>
     <MainDisplayScore />
-    <MainDisplayPokemon v-if="poke !== null" :poke="poke" />
-    <MainAnswer :answer="poke && poke.name ? poke.name.fr : 'wait'" />
+    <div v-if="poke !== null">
+      <MainDisplayPokemon :poke="poke" />
+      <MainAnswer :answer="poke.name.fr" />
+    </div>
+    <div v-else>
+      Loading...
+    </div>
+
   </div>
 </template>
 
